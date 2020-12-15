@@ -17,7 +17,13 @@ import time
 client = discord.Client() # Create Instance of Client. This Client is discord server's connection to Discord Room
 bottoken = ""
 
-
+@commands.command()
+    async def 핑(self, ctx):
+        await ctx.trigger_typing()
+        embed = discord.Embed(title="핑", description= f"{str(round(self.client.latency*1000))}ms", color=0xffffff)
+        embed.set_footer(text="Offered by NACL - Shio", icon_url="https://raw.githubusercontent.com/Shio7/EZ-Bot/master/images/Shio71.png")
+        await ctx.send(embed=embed)
+        
 @client.event # Use these decorator to register an event.
 async def on_ready(): # on_ready() event : when the bot has finised logging in and setting things up
     await client.change_presence(status=discord.Status.idle, activity=discord.Game("크시야 코로나 | 코로나-19현황"))
