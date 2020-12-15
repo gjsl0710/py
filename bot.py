@@ -75,8 +75,8 @@ async def on_message(message): # on_message() event : when the bot has recieved 
         embed.add_field(name="관련 브리핑" + briefTasks[0][0],value="Link : " + briefTasks[0][1],inline=False)
         embed.add_field(name="관련 브리핑" + briefTasks[1][0], value="Link : " + briefTasks[1][1], inline=False)
         embed.set_thumbnail(url="https://wikis.krsocsci.org/images/7/79/%EB%8C%80%ED%95%9C%EC%99%95%EA%B5%AD_%ED%83%9C%EA%B7%B9%EA%B8%B0.jpg")
-        embed.set_footer(text='출처 : 보건복지부',
-                         icon_url='https://cdn.discordapp.com/attachments/757231148933054467/788307985255628831/Y5Tg6aur.jpg')
+        embed.set_footer(text='출처 : 중앙방역대책본부 | 중앙사고수습본부 | 질병관리본부 | 질병관리처 | 보건복지부 | 대한민국정부',
+                         icon_url='https://cdn.discordapp.com/attachments/757231148933054467/788366198874177536/A0002257455_T.jpg')
         await message.channel.send("대한민국 코로나-19 현황", embed=embed)
         
 
