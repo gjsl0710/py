@@ -30,11 +30,6 @@ async def on_message(message): # on_message() event : when the bot has recieved 
     print(message.content)
     if message.author == client.user:
         return
-if message.content == "크시야 초대":
-    embed = discord.Embed(title="크시봇 초대하기!", description="봇 초대하기!", color=0x8b00ff,url="http://asq.kr/cusibot") # Embed의 기본 틀(색상, 메인 제목, 설명)을 잡아줍니다
-    embed.set_footer(text="제목을 누르면 초대페이지로 이동됩니다.") # 하단에 들어가는 조그마한 설명을 잡아줍니다
-    await message.channel.send(embed=embed) # embed를 포함 한 채로 메시지를 전송합니다.
-
 
     if message.content.startswith("크시야 코로나"):
         # 보건복지부 코로나 바이러스 정보사이트"
@@ -68,7 +63,7 @@ if message.content == "크시야 초대":
         totalPeopletoInt = statNum[0].split(')')[-1].split(',')
         tpInt = ''.join(totalPeopletoInt)
         lethatRate = round((int(statNum[3]) / int(tpInt)) * 100, 2)
-        embed = discord.Embed(title="코로나19 현황", description="",color=0x8b00ff,url="http://ncov.mohw.go.kr/index.jsp")
+        embed = discord.Embed(title="코로나19 현황", description="대한민국의 코로나19 현황을 보여줍니다.",timestamp = datetime.datetime.utcnow(),color=0x8b00ff,url="http://ncov.mohw.go.kr/index.jsp")
         embed.add_field(name="현황기준",value="해당 자료는 " + latestupdateTime[0] + "월 " + latestupdateTime[1] + "일 "+latestupdateTime[2] +" 자료입니다.", inline=False)
         embed.set_author(name="아래 제목을 클릭해 더 많은정보를 확인할 수 있습니다.",icon_url=message.author.avatar_url)
         embed.add_field(name="확진환자(누적)", value=statNum[0].split(')')[-1]+"("+beforeNum[0]+")",inline=True)
@@ -85,4 +80,4 @@ if message.content == "크시야 초대":
         await message.channel.send("대한민국 코로나-19 현황", embed=embed)
         
 
-client.run(os.environ['token'])
+client.run('NzU1MjY1ODI2MzEwOTc5NjI1.X2AyHQ.dlBvXjuQGmR8yu2v07D5eRYfgtA')
