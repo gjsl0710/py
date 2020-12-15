@@ -34,8 +34,6 @@ if message.content == "크시야 초대":
     embed = discord.Embed(title="크시봇 초대하기!", description="봇 초대하기!", color=0x8b00ff,url="http://asq.kr/cusibot") # Embed의 기본 틀(색상, 메인 제목, 설명)을 잡아줍니다
     embed.set_footer(text="제목을 누르면 초대페이지로 이동됩니다.") # 하단에 들어가는 조그마한 설명을 잡아줍니다
     await message.channel.send(embed=embed) # embed를 포함 한 채로 메시지를 전송합니다.
-    await message.channel.send("제목을 눌러주세요.", embed=embed) # embed와 메시지를 함께 보내고 싶으시면 이렇게 사용하시면 됩니
-
 
 
     if message.content.startswith("크시야 코로나"):
