@@ -79,4 +79,5 @@ async def on_message(message): # on_message() event : when the bot has recieved 
                          icon_url='https://cdn.discordapp.com/attachments/757231148933054467/788307985255628831/Y5Tg6aur.jpg')
         await message.channel.send("대한민국 코로나-19 현황", embed=embed)
         
-client.run('NzU1MjY1ODI2MzEwOTc5NjI1.X2AyHQ.UeJJdf035UBsTyX3hDKYNMmkIUc')
+
+client.run(os.environ['token'])
