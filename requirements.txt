@@ -1,6 +1,5 @@
 discord.py
 asyncio
-os
 re
 warnings
 requests
