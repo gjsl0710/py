@@ -17,16 +17,10 @@ import time
 client = discord.Client() # Create Instance of Client. This Client is discord server's connection to Discord Room
 bottoken = ""
 
-@commands.command()
-    async def 핑(self, ctx):
-        await ctx.trigger_typing()
-        embed = discord.Embed(title="핑", description= f"{str(round(self.client.latency*1000))}ms", color=0xffffff)
-        embed.set_footer(text="Offered by NACL - Shio", icon_url="https://raw.githubusercontent.com/Shio7/EZ-Bot/master/images/Shio71.png")
-        await ctx.send(embed=embed)
-        
+
 @client.event # Use these decorator to register an event.
 async def on_ready(): # on_ready() event : when the bot has finised logging in and setting things up
-    await client.change_presence(status=discord.Status.idle, activity=discord.Game("크시야 코로나 | 코로나-19현황"))
+    await client.change_presence(status=discord.Status.online, activity=discord.Game("!코로나"))
     print("New log in as {0.user}".format(client))
 
 @client.event
@@ -37,7 +31,7 @@ async def on_message(message): # on_message() event : when the bot has recieved 
     if message.author == client.user:
         return
 
-    if message.content.startswith("크시야 코로나"):
+    if message.content.startswith("!코로나"):
         # 보건복지부 코로나 바이러스 정보사이트"
         covidSite = "http://ncov.mohw.go.kr/index.jsp"
         covidNotice = "http://ncov.mohw.go.kr"
@@ -69,7 +63,7 @@ async def on_message(message): # on_message() event : when the bot has recieved 
         totalPeopletoInt = statNum[0].split(')')[-1].split(',')
         tpInt = ''.join(totalPeopletoInt)
         lethatRate = round((int(statNum[3]) / int(tpInt)) * 100, 2)
-        embed = discord.Embed(title="코로나19 현황", description="",color=0x9370DB,url="http://ncov.mohw.go.kr/index.jsp")
+        embed = discord.Embed(title="코로나19 현황", description="",color=0x5CD1E5,url="http://ncov.mohw.go.kr/index.jsp")
         embed.add_field(name="현황기준",value="해당 자료는 " + latestupdateTime[0] + "월 " + latestupdateTime[1] + "일 "+latestupdateTime[2] +" 자료입니다.", inline=False)
         embed.set_author(name="아래 제목을 클릭해 더 많은정보를 확인할 수 있습니다.",icon_url=message.author.avatar_url)
         embed.add_field(name="확진환자(누적)", value=statNum[0].split(')')[-1]+"("+beforeNum[0]+")",inline=True)
