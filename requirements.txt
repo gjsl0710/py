@@ -1,6 +1,5 @@
 discord.py
 asyncio
-re
 warnings
 requests
 time
