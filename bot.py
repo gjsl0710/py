@@ -20,7 +20,7 @@ bottoken = ""
 
 @client.event # Use these decorator to register an event.
 async def on_ready(): # on_ready() event : when the bot has finised logging in and setting things up
-    await client.change_presence(status=discord.Status.idle, activity=discord.Game("!코로나"))
+    await client.change_presence(status=discord.Status.idle, activity=discord.Game("크시야 코로나 | 코로나-19현황"))
     print("New log in as {0.user}".format(client))
 
 @client.event
@@ -31,7 +31,7 @@ async def on_message(message): # on_message() event : when the bot has recieved 
     if message.author == client.user:
         return
 
-    if message.content.startswith("!코로나"):
+    if message.content.startswith("크시야 코로나"):
         # 보건복지부 코로나 바이러스 정보사이트"
         covidSite = "http://ncov.mohw.go.kr/index.jsp"
         covidNotice = "http://ncov.mohw.go.kr"
