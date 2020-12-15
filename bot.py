@@ -63,7 +63,7 @@ async def on_message(message): # on_message() event : when the bot has recieved 
         totalPeopletoInt = statNum[0].split(')')[-1].split(',')
         tpInt = ''.join(totalPeopletoInt)
         lethatRate = round((int(statNum[3]) / int(tpInt)) * 100, 2)
-        embed = discord.Embed(title="코로나19 현황", description="",color=0x6A5ACD,url="http://ncov.mohw.go.kr/index.jsp")
+        embed = discord.Embed(title="코로나19 현황", description="",color=0x9370DB,url="http://ncov.mohw.go.kr/index.jsp")
         embed.add_field(name="현황기준",value="해당 자료는 " + latestupdateTime[0] + "월 " + latestupdateTime[1] + "일 "+latestupdateTime[2] +" 자료입니다.", inline=False)
         embed.set_author(name="아래 제목을 클릭해 더 많은정보를 확인할 수 있습니다.",icon_url=message.author.avatar_url)
         embed.add_field(name="확진환자(누적)", value=statNum[0].split(')')[-1]+"("+beforeNum[0]+")",inline=True)
