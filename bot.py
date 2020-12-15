@@ -80,4 +80,4 @@ async def on_message(message): # on_message() event : when the bot has recieved 
         await message.channel.send("대한민국 코로나-19 현황", embed=embed)
         
 
-client.run('NzU1MjY1ODI2MzEwOTc5NjI1.X2AyHQ.dlBvXjuQGmR8yu2v07D5eRYfgtA')
+client.run(os.environ['token'])
