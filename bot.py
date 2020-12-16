@@ -25,7 +25,7 @@ class ko_Avatar(commands.Cog):
  
     # Commands
     @commands.command()
-    async def 크시야 프사(self, ctx):
+    async def 아바타(self, ctx):
         if (ctx.message.mentions.__len__() > 0):
             for user in ctx.message.mentions:
                 pfp = str(user.avatar_url)
