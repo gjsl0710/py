@@ -26,7 +26,6 @@ class ko_Avatar(commands.Cog):
 # Comands embed
 async def on_message(message):
     if message.content.startswith("크시야 내정보"):
-    date = datetime.datetime.utcfromtimestamp(((int(message.author.id) >> 22) + 1420070400000) / 1000)
     embed = discord.Embed(Color=0x8b00ff)
     embed.add_field(name="이름", value=message.author.name, inline=True)
     embed.add_field(name="서버별명", value=message.author.display_name, inline=True)
