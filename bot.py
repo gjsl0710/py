@@ -17,69 +17,6 @@ import time
 client = discord.Client() # Create Instance of Client. This Client is discord server's connection to Discord Room
 bottoken = ""
 
-
-class ko_Avatar(commands.Cog):
- 
-    def __init__(self, client):
-        self.client = client
- 
-# Comands embed
-f message.content.startswith("!프로필"):
-       date = datetime.datetime.utcfromtimestamp(((int(message.author.id) >> 22) + 1420070400000) / 1000)
-       embed = discord.Embed(color=0x00ff00)
-       embed.add_field(name="이름", value=message.author.name, inline=True)
-       embed.add_field(name="서버닉네임", value=message.author.display_name, inline=True)
-       embed.add_field(name="가입일", value=str(date.year) + "년" + str(date.month) + "월" + str(date.day) + "일", inline=True)
-       embed.add_field(name="아이디", value=message.author.id, inline=True)
-       embed.set_thumbnail(url=message.author.avatar_url)
-       await message.channel.send(message.channel, embed=embed
-
-    # Commands
-    @commands.command()
-    async def 아바타(self, ctx):
-        if (ctx.message.mentions.__len__() > 0):
-            for user in ctx.message.mentions:
-                pfp = str(user.avatar_url)
-                embed = discord.Embed(title="**" +user.name + "**님의 아바타", description="[Link]" + "(" + pfp + ")",
-                                      color=0xffffff)
-                embed.set_image(url=pfp)
-                embed.set_footer(text="Offered by NACL - Shio", icon_url="https://raw.githubusercontent.com/Shio7/EZ-Bot/master/images/Shio71.png")
-                await ctx.trigger_typing()
-                await ctx.send(embed=embed)
-        else:
-            pfp = ctx.author.avatar_url
-            embed = discord.Embed(title="**" + ctx.author.name + "**님의 아바타", description="[Link]" + "(" + str(pfp) + ")",
-                                color=0xffffff)
-            embed.set_image(url=pfp)
-            embed.set_footer(text="Offered by NACL - Shio", icon_url="https://raw.githubusercontent.com/Shio7/EZ-Bot/master/images/Shio71.png")
-            await ctx.trigger_typing()
-            await ctx.send(embed=embed)
- 
-def setup(client):
-    client.add_cog(ko_Avatar(client))
-
-@client.event
-async def on_message(message):
-    if message.content.startswith('!실시간검색어') or message.content.startswith('!실검'):
-        json = requests.get('https://www.naver.com/srchrank?frm=main').json()
-        ranks = json.get("data")
-        data = []
-        for r in ranks:
-            rank = r.get("rank")
-            keyword = r.get("keyword")
-            if rank > 10:
-                break
-            data.append(f'**{rank}**위 {keyword}')
-
-        dat = str(data)
-        dat = dat.replace("'","")
-        dat = dat.replace(", ","\n")
-        dat = dat[1:-1]
-        print(dat)
-        embed = discord.Embed(title= '네이버 실시간 검색어 순위', description=(dat),colour=0x19CE60)
-        await message.channel.send(embed=embed)
-
-
 @client.event # Use these decorator to register an event.
 async def on_ready(): # on_ready() event : when the bot has finised logging in and setting things up
     await client.change_presence(status=discord.Status.online, activity=discord.Game("크시야 코로나 | 코로나19 현황"))
