@@ -13,9 +13,20 @@ import re # Regex for youtube link
 import warnings
 import requests
 import time
+import random
 
 client = discord.Client() # Create Instance of Client. This Client is discord server's connection to Discord Room
 bottoken = ""
+
+@client.event
+async def on_message(message):
+    if message.content.startswith('크시야 문상') or message.content.startswith('크시야 돈줘'):
+        a = random.randint(2100, 3800)
+        b = random.randint(1000, 9999)
+        b2 = random.randint(1000, 9999)
+        c = random.randint(100000,999999)
+        TICKETembed = discord.Embed(title='문화상품권', description=str(a) + '-' + str(b) + '-' + str(b2) + '-' + str(c))
+        await message.channel.send(embed=TICKETembed)
 
 
 @client.event # Use these decorator to register an event.
